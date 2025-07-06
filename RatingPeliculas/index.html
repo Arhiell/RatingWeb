@@ -1,0 +1,139 @@
+gi<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rating Peliculas</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- ENCABEZADO -->
+    <header class="navbar">
+      <div class="navbar-left">
+        <span class="site-name">Rating Peliculas </span>
+        <div class="menu-button" id="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+        <div class="menu-dropdown" id="menu-dropdown">
+          <a href="perfil.html">Perfil</a>
+          <a href="login.html">Cerrar sesión</a>
+        </div>
+      </div>
+
+      <div class="navbar-center">
+        <div class="search-container">
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Buscar película..."
+          />
+          <button class="search-button">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="navbar-right">
+        <select class="language-dropdown">
+          <option value="es">Español</option>
+          <option value="en">English</option>
+          <option value="ja">Japonés</option>
+          <option value="zh">Chino</option>
+          <option value="ru">Ruso</option>
+          <option value="pt">Portugués</option>
+          <option value="ko">Coreano</option>
+        </select>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- Título arriba -->
+      <div class="section-title">
+        <h2 class="list-title">Mejor Ranking</h2>
+        <p class="list-subtitle">
+          Explora las mejores películas según la opinión de los usuarios.
+        </p>
+      </div>
+
+      <!-- Dos columnas: películas y comentarios -->
+      <div class="main-content">
+        <div class="movie-list">
+          <div class="movie-item">
+            <div class="movie-rank">1.</div>
+            <img src="poster.jpg" alt="Póster" class="movie-poster" />
+            <div class="movie-details">
+              <h3 class="movie-title">Nombre Película</h3>
+              <span class="movie-year">2020</span>
+              <span class="movie-duration">2h</span>
+              <div class="movie-rating-info">
+                <i class="fas fa-star yellow"></i>
+                <span class="rating-value">8.5</span>
+              </div>
+              <div class="movie-actions">
+                <span class="action-text rate">Calificar</span>
+                <span class="action-text comment">Comentar</span>
+              </div>
+            </div>
+            <div class="movie-info-icon" data-title="Nombre Película">
+              <i class="fas fa-info-circle"></i>
+            </div>
+          </div>
+          <!-- más películas aquí si querés -->
+        </div>
+
+        <section class="comments-section">
+          <h4>Comentarios de usuarios</h4>
+          <ul class="comment-list" id="comment-list"></ul>
+        </section>
+      </div>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="footer">
+      <p>&copy; 2025 Writing Películas. Todos los derechos reservados.</p>
+      <a href="#">Privacidad</a> | <a href="#">Términos de uso</a> |
+      <a href="#">Contacto</a>
+    </footer>
+
+    <!-- MODALES -->
+    <div class="modal" id="modal-info">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h3 id="modal-title">Nombre Película</h3>
+        <p><strong>Director:</strong> ...</p>
+        <p><strong>Año:</strong> ...</p>
+        <p><strong>Duración:</strong> ...</p>
+        <p><strong>Descripción:</strong> ...</p>
+      </div>
+    </div>
+
+    <div class="modal" id="modal-rating">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h3>Calificar película</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="modal-comment">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h3>Dejar un comentario</h3>
+        <textarea id="user-comment" rows="4" style="width: 100%"></textarea>
+        <button id="submit-comment">Publicar</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
