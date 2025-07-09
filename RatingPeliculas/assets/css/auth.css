@@ -14,38 +14,39 @@ body {
 
 .form-box {
   background: white;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
-  width: 300px;
+  padding: 20px; /* menos padding */
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
+  width: 240px; /* más angosto */
 }
 
 .form-box h2 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+  font-size: 18px; /* más chico */
   color: #1a1a1a;
 }
 
 form input {
   width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  border-radius: 5px;
+  padding: 8px;
+  margin: 6px 0;
+  border-radius: 4px;
   border: 1px solid #ccc;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 form button {
   width: 100%;
   background-color: #f5c518;
   color: #1a1a1a;
-  padding: 10px;
-  border: none;
+  padding: 8px;
   font-weight: bold;
-  font-size: 15px;
-  border-radius: 5px;
+  font-size: 13px;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 form button:hover {
@@ -54,11 +55,15 @@ form button:hover {
 
 .link {
   text-align: center;
-  margin-top: 15px;
-  font-size: 14px;
+  margin-top: 10px;
+  font-size: 12px;
 }
 
 .link a {
   color: #0073e6;
   text-decoration: none;
+}
+
+.link a:hover {
+  text-decoration: underline;
 }

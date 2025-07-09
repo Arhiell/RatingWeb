@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f0f0f0;
+  color: #1a1a1a;
+}
+
+.container-top10 {
+  max-width: 700px;
+  margin: 40px auto;
+  background-color: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container-top10 h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 22px;
+  color: #333;
+}
+
+.movie-card {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.movie-card:last-child {
+  border-bottom: none;
+}
+
+.movie-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #222;
+}
+
+.movie-info {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.movie-rating {
+  font-size: 16px;
+  font-weight: bold;
+  color: #f5c518;
+  margin-top: 6px;
+}
+
+.position-number {
+  font-size: 14px;
+  color: #888;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
