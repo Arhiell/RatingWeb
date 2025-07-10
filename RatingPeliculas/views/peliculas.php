@@ -27,6 +27,7 @@ if (!isset($_SESSION['id_usuario'])) {
         <div class='titulo-pelicula'>{$p['titulo']} ({$p['anio']})</div>
         <div class='info-peli'>Director: {$p['director']} </div>
         <div class ='info-peli'> Descripcion: {$p['descripcion']}</div>
+        <div class ='info-peli'> Clasificacion: {$p['clasificacion']}</div>
 
         <form action='../actions/calificar.php' method='POST'>
           <input type='hidden' name='id_pelicula' value='{$p['id_pelicula']}'>
@@ -40,5 +41,9 @@ if (!isset($_SESSION['id_usuario'])) {
     }
     ?>
   </div>
+  <div class="extras">
+  <a href="comentarios.php" class="extra-btn">🗨️ Ver Comentarios de Usuarios</a>
+  <a href="top10.php" class="extra-btn">🔝 Ver Top 10 de Películas Valoradas</a>
+</div>
 </body>
 </html>

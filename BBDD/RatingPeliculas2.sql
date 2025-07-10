@@ -48,21 +48,28 @@ CREATE TABLE Pelicula (
     anio INT,
     id_genero INT,
     director VARCHAR(100),
+    clasificacion VARCHAR(10),
+    duracion VARCHAR(20),
     fecha_agregada DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (id_genero) REFERENCES Genero(id_genero)
 );
 
-INSERT INTO Pelicula (titulo, descripcion, anio, id_genero, director) VALUES
-('The Shawshank Redemption', 'Un hombre es encarcelado injustamente y forma una amistad duradera.', 1994, 3, 'Frank Darabont'),
-('The Godfather', 'El ascenso de una familia mafiosa.', 1972, 6, 'Francis Ford Coppola'),
-('Inception', 'Un ladrón que roba secretos del subconsciente.', 2010, 2, 'Christopher Nolan'),
-('The Dark Knight', 'Batman enfrenta al Joker.', 2008, 1, 'Christopher Nolan'),
-('Pulp Fiction', 'Historias cruzadas de crimen y redención.', 1994, 6, 'Quentin Tarantino'),
-('Forrest Gump', 'Un hombre simple que marca la historia.', 1994, 3, 'Robert Zemeckis'),
-('Titanic', 'Una historia de amor en el trágico hundimiento.', 1997, 7, 'James Cameron'),
-('Avatar', 'Un ex-marine en un mundo alienígena.', 2009, 2, 'James Cameron'),
-('The Matrix', 'La realidad es una simulación.', 1999, 2, 'Lana Wachowski'),
-('Toy Story', 'Los juguetes cobran vida.', 1995, 8, 'John Lasseter');
+-- 📥 Películas de ejemplo
+INSERT INTO Pelicula (titulo, descripcion, anio, id_genero, director, clasificacion, duracion)
+VALUES
+('The Shawshank Redemption', 'Un hombre es encarcelado injustamente y forma una amistad duradera.', 1994, 3, 'Frank Darabont', 'B', '2h 22m'),
+('The Godfather', 'El ascenso de una familia mafiosa.', 1972, 6, 'Francis Ford Coppola', '+13', '2h 55m'),
+('Inception', 'Un ladrón que roba secretos del subconsciente.', 2010, 2, 'Christopher Nolan', '+13', '2h 28m'),
+('The Dark Knight', 'Batman enfrenta al Joker.', 2008, 1, 'Christopher Nolan', '+13', '2h 32m'),
+('Pulp Fiction', 'Historias cruzadas de crimen y redención.', 1994, 6, 'Quentin Tarantino', '+16', '2h 34m'),
+('Forrest Gump', 'Un hombre simple que marca la historia.', 1994, 3, 'Robert Zemeckis', 'ATP', '2h 22m'),
+('Titanic', 'Una historia de amor en el trágico hundimiento.', 1997, 4, 'James Cameron', '+13', '3h 14m'),
+('Avatar', 'Un ex-marine en un mundo alienígena.', 2009, 2, 'James Cameron', '+13', '2h 42m'),
+('The Matrix', 'La realidad es una simulación.', 1999, 2, 'Lana Wachowski', '+13', '2h 16m'),
+('Toy Story', 'Los juguetes cobran vida.', 1995, 8, 'John Lasseter', 'ATP', '1h 21m');
+
+
+
 
 -- ========================
 -- TABLA: Calificación
@@ -132,7 +139,7 @@ FROM Pelicula p
 JOIN Calificacion c ON p.id_pelicula = c.id_pelicula
 GROUP BY p.id_pelicula
 ORDER BY promedio DESC
-LIMIT 10;
+LIMIT 5;
 
 -- ========================
 -- TRIGGER: Log de calificaciones
@@ -219,3 +226,18 @@ GRANT SELECT, UPDATE ON Usuario TO administrador;
 
 -- GRANT usuario TO 'usuario1'@'localhost';
 -- GRANT administrador TO 'admin1'@'localhost';
+
+ALTER TABLE Pelicula ADD clasificacion VARCHAR(10) AFTER descripcion;
+
+UPDATE Pelicula SET clasificacion = 'B' WHERE titulo = 'The Shawshank Redemption';
+UPDATE Pelicula SET clasificacion = '+13' WHERE titulo = 'The Godfather';
+UPDATE Pelicula SET clasificacion = '+13' WHERE titulo = 'Inception';
+UPDATE Pelicula SET clasificacion = '+13' WHERE titulo = 'The Dark Knight';
+UPDATE Pelicula SET clasificacion = '+16' WHERE titulo = 'Pulp Fiction';
+UPDATE Pelicula SET clasificacion = 'ATP' WHERE titulo = 'Forrest Gump';
+UPDATE Pelicula SET clasificacion = '+13' WHERE titulo = 'Titanic';
+UPDATE Pelicula SET clasificacion = '+13' WHERE titulo = 'Avatar';
+UPDATE Pelicula SET clasificacion = '+13' WHERE titulo = 'The Matrix';
+UPDATE Pelicula SET clasificacion = 'ATP' WHERE titulo = 'Toy Story';
+
+Añadir duracion en pelicula campo y datos.
