@@ -2,8 +2,8 @@
 session_start();
 include "../config/conexion.php";
 
-if ($_SESSION['rol'] !== 'admin') {
-  echo "<script>alert('Acceso denegado'); window.location.href='../views/peliculas.php';</script>";
+if (!isset($_SESSION['id_usuario']) || $_SESSION['rol'] !== 'admin') {
+  echo "<script>alert('No autorizado'); window.location.href='../views/peliculas.php';</script>";
   exit();
 }
 
@@ -13,15 +13,20 @@ $anio = $_POST['anio'];
 $director = $_POST['director'];
 $clasificacion = $_POST['clasificacion'];
 $duracion = $_POST['duracion'];
-$id_genero = $_POST['id_genero'];
-$imagen = $_POST['imagen'];
+$id_genero = $_POST['id_genero']; // seleccionado en el formulario
 
-$stmt = $conn->prepare("
-  INSERT INTO Pelicula (titulo, descripcion, anio, id_genero, director, clasificacion, duracion, imagen)
-  VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-");
-$stmt->bind_param("ssiissss", $titulo, $descripcion, $anio, $id_genero, $director, $clasificacion, $duracion, $imagen);
+// Insertar película
+$stmt = $conn->prepare("INSERT INTO Pelicula (titulo, descripcion, anio, director, clasificacion, duracion) VALUES (?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("ssisss", $titulo, $descripcion, $anio, $director, $clasificacion, $duracion);
 $stmt->execute();
 
-echo "<script>alert('Película agregada exitosamente'); window.location.href='../views/admin_panel.php';</script>";
+$id_pelicula = $conn->insert_id;
+
+// Insertar género asociado (relación en tabla intermedia)
+$conn->query("INSERT INTO Pelicula_Genero (id_pelicula, id_genero) VALUES ($id_pelicula, $id_genero)");
+
+echo "<script>
+  alert('🎉 Película agregada exitosamente');
+  window.location.href='../views/admin.php';
+</script>";
 ?>
