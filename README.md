@@ -14,11 +14,11 @@ Desarrollar una aplicación que permita a los usuarios explorar películas, asig
 
 ## 🛠️ Herramientas y Tecnologías
 
-| Herramienta            | Uso                                    |
-| ---------------------- | ------------------------------------- |
-| 🗄️ MySQL               | Base de datos relacional               |
-| 🌐 HTML, CSS, JS       | Desarrollo del frontend                |
-| ⚙️ Node.js + Express   | Backend y API REST                     |
+| Herramienta            | Uso                                         |
+| ---------------------- | ------------------------------------------ |
+| 🗄️ MySQL               | Base de datos relacional                    |
+| 🌐 HTML, CSS, JS       | Desarrollo del frontend                      |
+| 🐘 PHP                 | Lógica del servidor para autenticación, registro y gestión de películas, calificaciones y comentarios (RatingPeliculas) |
 
 ---
 
